@@ -5,12 +5,14 @@
  * @param {MouseEvent} e
  */
 function i18nClickEvent(e) {
-  if (window.location.pathname.startsWith('/i18n')) {
-    const target = /** @type {HTMLElement} */ (e.target);
-    if (target.tagName === 'A') {
-      const i18nHref = target.getAttribute('data-i18n');
-      target.setAttribute('href', i18nHref);
-    }
+  const target = /** @type {HTMLElement} */ (e.target);
+  const i18nHref = target.getAttribute('data-i18n');
+  if (
+    window.location.pathname.startsWith('/i18n') &&
+    target.tagName === 'A' &&
+    i18nHref
+  ) {
+    target.setAttribute('href', i18nHref);
   }
 }
 
